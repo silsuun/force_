@@ -44,9 +44,9 @@ if (i == 0) {
 checkCollision(other) {
   let d = p5.Vector.dist(this.position, other.position);
 
-  if (d < 40) {
-    this.velocity.x = -this.velocity.x;
-    other.velocity.x = -other.velocity.x;
+  if (d < 40 && this.velocity.x > 0) {
+    other.velocity.x = this.velocity.x;
+    this.velocity.x = 0;
   }
 }
   applyForce(force) {
