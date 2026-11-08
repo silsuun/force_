@@ -12,6 +12,15 @@ class Mover {
     this.acceleration = createVector(0, 0);
     this.anchor = createVector(220 + i * 50, 20);
 this.length = 80;
+this.position = createVector(220 + i * 50, 100);
+
+if (i == 0) {
+  this.position.x -= 50;
+  this.position.y -= 20;
+}
+if (i == 0) {
+  this.velocity.x = 2;
+}
   }
   update() {
     this.velocity.add(this.acceleration);
