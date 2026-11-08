@@ -23,5 +23,8 @@ function draw() {
     mover.constrainLength();
     mover.show();
   }
+  for (let i = 0; i < movers.length - 1; i++) {
+  movers[i].checkCollision(movers[i + 1]);
+}
 }
   

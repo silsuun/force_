@@ -41,7 +41,14 @@ if (i == 0) {
   ellipse(this.position.x, this.position.y, 50, 50);
 }
 
+checkCollision(other) {
+  let d = p5.Vector.dist(this.position, other.position);
 
+  if (d < 40) {
+    this.velocity.x = -this.velocity.x;
+    other.velocity.x = -other.velocity.x;
+  }
+}
   applyForce(force) {
     let f = p5.Vector.div(force, this.mass);
     this.acceleration.add(f);
