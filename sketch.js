@@ -2,26 +2,22 @@
 // Daniel Shiffman
 // http://natureofcode.com
 
-let mover;
+let movers = [];
 
 function setup() {
   createCanvas(640, 240);
-  mover = new Mover();
-  createP("Click mouse to apply wind force.");
+
+  for (let i = 0; i < 5; i++) {
+    movers[i] = new Mover(i);
+  }
 }
 
 function draw() {
   background(255);
 
-  let gravity = createVector(0, 0.1);
-  mover.applyForce(gravity);
-
-  if (mouseIsPressed) {
-    let wind = createVector(0.1, 0);
-    mover.applyForce(wind);
+  for (let mover of movers) {
+    mover.update();
+    mover.show();
   }
-
-  mover.update();
-  mover.show();
-  mover.checkEdges();
 }
+  
