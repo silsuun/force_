@@ -38,5 +38,10 @@ this.length = 80;
     this.acceleration.add(f);
   }
   
+  constrainLength() {
+  let direction = p5.Vector.sub(this.position, this.anchor);
+  direction.setMag(this.length);
+  this.position = p5.Vector.add(this.anchor, direction);
+}
 }
 

@@ -15,8 +15,12 @@ function setup() {
 function draw() {
   background(255);
 
+  let gravity = createVector(0, 0.1);
+
   for (let mover of movers) {
+    mover.applyForce(gravity);
     mover.update();
+    mover.constrainLength();
     mover.show();
   }
 }
