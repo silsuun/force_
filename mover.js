@@ -21,6 +21,7 @@ if (i == 0) {
 if (i == 0) {
   this.velocity.x = 2;
 }
+
   }
   update() {
     this.velocity.add(this.acceleration);
@@ -44,9 +45,15 @@ if (i == 0) {
 checkCollision(other) {
   let d = p5.Vector.dist(this.position, other.position);
 
-  if (d < 40 && this.velocity.x > 0) {
-    other.velocity.x = this.velocity.x;
-    this.velocity.x = 0;
+  if (d < 40) {
+    if (this.velocity.x > 0) {
+      other.velocity.x = this.velocity.x;
+      this.velocity.x = 0;
+    } 
+    else if (this.velocity.x < 0) {
+      other.velocity.x = this.velocity.x;
+      this.velocity.x = 0;
+    }
   }
 }
   applyForce(force) {
