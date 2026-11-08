@@ -10,6 +10,8 @@ class Mover {
     this.position = createVector(220 + i * 50, 100);
     this.velocity = createVector(0, 0);
     this.acceleration = createVector(0, 0);
+    this.anchor = createVector(220 + i * 50, 20);
+this.length = 80;
   }
   update() {
     this.velocity.add(this.acceleration);
@@ -18,9 +20,17 @@ class Mover {
   }
 
    show() {
-    fill(127);
-    ellipse(this.position.x, this.position.y, 40, 40);
-  }
+  stroke(0);
+  line(
+    this.anchor.x,
+    this.anchor.y,
+    this.position.x,
+    this.position.y
+  );
+
+  fill(127);
+  ellipse(this.position.x, this.position.y, 50, 50);
+}
 
 
   applyForce(force) {
